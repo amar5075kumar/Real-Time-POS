@@ -1,5 +1,3 @@
-%md
-
 ## Overview
 This  Real-Time Point-of-Sale Solution utilizing Delta Live Tables (DLT) with Amazon Managed Workflows for Apache Managed Streaming Kafka(MSK). This solution showcases how Delta Live Tables can be utilized to construct a near real-time lakehouse architecture for calculating current inventories of various products across multiple store locations. Instead of directly transitioning from raw data ingestion to inventory calculations, I've structured this solution into two distinct phases.
 
