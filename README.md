@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 ## Overview
 This  Real-Time Point-of-Sale Solution utilizing Delta Live Tables (DLT) with Amazon Managed Workflows for Apache Managed Streaming Kafka(MSK). This solution showcases how Delta Live Tables can be utilized to construct a near real-time lakehouse architecture for calculating current inventories of various products across multiple store locations. Instead of directly transitioning from raw data ingestion to inventory calculations, I've structured this solution into two distinct phases.
 
@@ -11,8 +10,24 @@ The initial phase, known as Bronze-to-Silver ETL, involves transforming ingested
 In the subsequent phase, referred to as Silver-to-Gold ETL, the Silver tables are leveraged to derive the business-aligned output, which is the calculated current-state inventory. The resulting data is stored in a table representing the Gold layer of our architecture.
 
 Throughout this two-phase workflow, I employ Delta Live Tables (DLT) for orchestration and monitoring.
+## Definition
 
+* *Notebook_01: Environment Setup*
+* *Notebook_02: Data_Generation -- Scheuled to run every 2 mins to push data to Kafka and S3 Bukcet *
+* *Notebook_03: Data - Consumer (Bronze to Gold)ETL for Broze Layer to Silver Layer*
+* *Notebook_04: Silver_To_Gold (ETL for Silver to Gold Layer) *
+* *Notebook_05: Orchestration- JOB Scheduling_DLT*
 ## DLT Pipeline
+ **DLT Table Creation**
+   - **raw_inventory_change**: Streaming table reads data from Kafka.
+   - **item**: Reads data from S3 file item.
+   - **inventory_snapshot**: Snapshot data from S3 produced using data generation.
+   - **inventory_change**: Transformed table created from raw_inventory_change table.
+   - **inventory_change_type**: Fixed table used for simulation purposes.
+   - **Latest Inventory Snapshot**: Extracts the latest inventory snapshot using Merge.
+   - **Store**: Fixed table stored in S3.
+   - **current_inventory**: Created using all other tables and triggered every 5 minutes.
+
 ![image info](Doc/DTL_Piepline.png)![](path)
 
 ## *Spark Structured Streaming vs. DLT(Delta Live Table)*
@@ -40,40 +55,5 @@ DLT's additional management features can help optimize the scalability and perfo
 
 By incorporating Delta Live Tables (DLT), the implementation of the streaming workflows remains consistent. DLT acts as a wrapper around our workflows, enabling orchestration, monitoring, and other enhancements that would otherwise require additional implementation efforts. In this context, DLT complements Spark Structured Streaming rather than replacing it. 
 
-## Definition
 
-* *Notebook_01: Env Setup*
-* *Notebook_02: Generating_Raw_Data*
-* *Notebook_03: ETL for Broze Layer to Silver Layer*
-* *Notebook_04: ETL for Silver to Gold Layer *
-* *Notebook_05: Orchestration- JOB Scheduling_DLT*
-
-
-
-
-
-
-=======
-# Real-Time-POS
-
-This folder defines all source code for the 'Real-Time-POS' pipeline:
-
-- `explorations`: Ad-hoc notebooks used to explore the data processed by this pipeline.
-- `transformations`: All dataset definitions and transformations.
-- `utilities`: Utility functions and Python modules used in this pipeline.
-- `data_sources` (optional): View definitions describing the source data for this pipeline.
-
-## Getting Started
-
-To get started, go to the `transformations` folder -- most of the relevant source code lives there:
-
-* By convention, every dataset under `transformations` is in a separate file.
-* Take a look at the sample under "sample_trips_real_time_pos.py" to get familiar with the syntax.
-  Read more about the syntax at https://docs.databricks.com/dlt/python-ref.html.
-* Use `Run file` to run and preview a single transformation.
-* Use `Run pipeline` to run _all_ transformations in the entire pipeline.
-* Use `+ Add` in the file browser to add a new data set definition.
-* Use `Schedule` to run the pipeline on a schedule!
-
-For more tutorials and reference material, see https://docs.databricks.com/dlt.
->>>>>>> Stashed changes
+\
