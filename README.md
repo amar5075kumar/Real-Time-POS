@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ## Overview
 This  Real-Time Point-of-Sale Solution utilizing Delta Live Tables (DLT) with Amazon Managed Workflows for Apache Managed Streaming Kafka(MSK). This solution showcases how Delta Live Tables can be utilized to construct a near real-time lakehouse architecture for calculating current inventories of various products across multiple store locations. Instead of directly transitioning from raw data ingestion to inventory calculations, I've structured this solution into two distinct phases.
 
@@ -49,3 +50,27 @@ By incorporating Delta Live Tables (DLT), the implementation of the streaming wo
 
 
 
+=======
+# Real-Time-POS
+
+This folder defines all source code for the 'Real-Time-POS' pipeline:
+
+- `explorations`: Ad-hoc notebooks used to explore the data processed by this pipeline.
+- `transformations`: All dataset definitions and transformations.
+- `utilities`: Utility functions and Python modules used in this pipeline.
+- `data_sources` (optional): View definitions describing the source data for this pipeline.
+
+## Getting Started
+
+To get started, go to the `transformations` folder -- most of the relevant source code lives there:
+
+* By convention, every dataset under `transformations` is in a separate file.
+* Take a look at the sample under "sample_trips_real_time_pos.py" to get familiar with the syntax.
+  Read more about the syntax at https://docs.databricks.com/dlt/python-ref.html.
+* Use `Run file` to run and preview a single transformation.
+* Use `Run pipeline` to run _all_ transformations in the entire pipeline.
+* Use `+ Add` in the file browser to add a new data set definition.
+* Use `Schedule` to run the pipeline on a schedule!
+
+For more tutorials and reference material, see https://docs.databricks.com/dlt.
+>>>>>>> Stashed changes
