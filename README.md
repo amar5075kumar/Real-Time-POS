@@ -30,6 +30,8 @@ Throughout this two-phase workflow, I employ Delta Live Tables (DLT) for orchest
    - **current_inventory**: Created using all other tables and triggered every 5 minutes.
 
 ![image info](Doc/DTL_Piepline.png)![](path)
+![image info](Doc/Creating_DLT.png)![](path)
+![image info](Doc/Data_Generation_Job.png)![](path)
 
 ## *Spark Structured Streaming vs. DLT(Delta Live Table)*
 
