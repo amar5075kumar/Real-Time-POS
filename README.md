@@ -12,6 +12,9 @@ In the subsequent phase, referred to as Silver-to-Gold ETL, the Silver tables ar
 
 Throughout this two-phase workflow, I employ Delta Live Tables (DLT) for orchestration and monitoring.
 
+## DLT Pipeline
+![image info](Doc/DTL_Piepline.png)![](path)
+
 ## *Spark Structured Streaming vs. DLT(Delta Live Table)*
 
 ### *Technology Stack*:
