@@ -10,6 +10,7 @@ The initial phase, known as Bronze-to-Silver ETL, involves transforming ingested
 In the subsequent phase, referred to as Silver-to-Gold ETL, the Silver tables are leveraged to derive the business-aligned output, which is the calculated current-state inventory. The resulting data is stored in a table representing the Gold layer of our architecture.
 
 Throughout this two-phase workflow, I employ Delta Live Tables (DLT) for orchestration and monitoring.
+## Data - All the data is been uploaded in DOC folder.
 ## Definition
 
 * *Notebook_01: Environment Setup*
